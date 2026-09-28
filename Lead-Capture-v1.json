@@ -1,0 +1,355 @@
+{
+  "name": "Lead Capture System",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "Lead-Capture",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -256,
+        -80
+      ],
+      "id": "48abc15b-581f-4769-81ed-e0907138538a",
+      "name": "Webhook",
+      "webhookId": "6b605d1e-68be-471f-b416-9896b7ff7052"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "125299d5-29e4-498b-b384-1ad3467f2e98",
+              "name": "full_name",
+              "value": "={{ $json.body.full_name || '' .trim() }}",
+              "type": "string"
+            },
+            {
+              "id": "6063d7ee-6f49-405c-ba32-6ff776fb945a",
+              "name": "email",
+              "value": "={{ $json.body.email }}",
+              "type": "string"
+            },
+            {
+              "id": "786867c8-d7e2-45a6-b9f4-806b34cacc10",
+              "name": "phone",
+              "value": "={{ $json.body.phone }}",
+              "type": "string"
+            },
+            {
+              "id": "87cf35d9-c450-4327-962e-f99b95391786",
+              "name": "service",
+              "value": "={{ $json.body.service }}",
+              "type": "string"
+            },
+            {
+              "id": "8c693357-0604-4f33-a94c-af54ede72e95",
+              "name": "message",
+              "value": "={{ $json.body.message }}",
+              "type": "string"
+            },
+            {
+              "id": "cf5a8a2b-0670-4f69-99c2-b6fa00b842dc",
+              "name": "created_at",
+              "value": "={{ $now.toISO()  }}",
+              "type": "string"
+            },
+            {
+              "id": "fa91886b-b036-473f-8449-4832a60e700e",
+              "name": "lead_status",
+              "value": "new",
+              "type": "string"
+            },
+            {
+              "id": "dbd14598-48bf-4ae2-943e-8347d5a751e7",
+              "name": "source",
+              "value": "website form",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        0,
+        0
+      ],
+      "id": "fdc2caa8-2fb1-407d-b291-0caa518b5992",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "e6ca83ab-21e3-40aa-8d87-c7ca614ec7c3",
+              "leftValue": "={{ $json.full_name }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "5df9e05c-827b-4b1f-b82a-e3d04f059ac3",
+              "leftValue": "={{ $json.email }}",
+              "rightValue": "@",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            },
+            {
+              "id": "03a2b636-b1a1-4906-abb5-c5045fc346bc",
+              "leftValue": "={{ $json.service }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "43cb9b63-04ae-4cff-869d-df1b7dfc91fe",
+              "leftValue": "={{ $json.message }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        224,
+        0
+      ],
+      "id": "2ba92232-cc24-405b-9cfd-aa87d27f6e9d",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_GOOGLE_SHEET_ID
+",
+          "mode": "url"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "YOUR_GOOGLE_SHEET_ID
+"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "full_name": "={{ $('Edit Fields').item.json.full_name }}",
+            "email": "={{ $('Edit Fields').item.json.email }}",
+            "phone": "={{ $('Edit Fields').item.json.phone }}",
+            "service": "={{ $('Edit Fields').item.json.service }}",
+            "message": "={{ $('Edit Fields').item.json.message }}",
+            "created_at": "={{ $('Edit Fields').item.json.created_at }}",
+            "lead_status": "={{ $('Edit Fields').item.json.lead_status }}",
+            "source": "={{ $('Edit Fields').item.json.source }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "full_name",
+              "displayName": "full_name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "email",
+              "displayName": "email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "phone",
+              "displayName": "phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "service",
+              "displayName": "service",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "message",
+              "displayName": "message",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "created_at",
+              "displayName": "created_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "lead_status",
+              "displayName": "lead_status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "source",
+              "displayName": "source",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        512,
+        -16
+      ],
+      "id": "d8009e00-b3fb-47db-ab7a-ec63a69035bf",
+      "name": "Append row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "your google sheet id",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "your telegram chat id",
+        "text": "={{\n`🚀 New Lead Received\n\nName: ${$json.full_name}\nEmail: ${$json.email}\nPhone: ${$json.phone || 'Not provided'}\nService: ${$json.service}\n\nMessage:\n${$json.message}\n\nStatus: ${$json.lead_status}\nSource: ${$json.source}`\n}}\n",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        -224,
+        192
+      ],
+      "id": "4bdc4de6-ceb6-4368-b0d4-32f24ee64b35",
+      "name": "Send a text message",
+      "webhookId": "44d44767-f45a-42de-86ba-c46e84efd77f",
+      "credentials": {
+        "telegramApi": {
+          "id": "hgnBjIxa5gy6DuKR",
+          "name": "Telegram account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Append row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append row in sheet": {
+      "main": [
+        [
+          {
+            "node": "Send a text message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "3078e427-9c8d-48bd-9ae0-944f22c653e7",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "544eb2bc20d4c891a4bfdd538bba62fdf1d79e838c3984dae14cf05e46f58e4d"
+  },
+  "nodeGroups": [],
+  "id": "SStRDG2JJryqQhap",
+  "tags": []
+}
