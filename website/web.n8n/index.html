@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Northbridge Estates | Premium London Property Agency</title>
+  <meta name="description" content="Personal property guidance for buyers, sellers, landlords and investors across London.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="#top" class="logo">Northbridge Estates</a>
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mainNav" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+      <nav class="main-nav" id="mainNav" aria-label="Main">
+        <a href="#properties">Properties</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="#contact" class="btn btn-primary nav-cta" data-service="Requesting a viewing">Book a Viewing</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <h1>Find a property that feels like home.</h1>
+          <p class="lead">Personal property guidance for buyers, sellers, landlords, and investors across London.</p>
+          <div class="btn-row">
+            <a href="#contact" class="btn btn-primary" data-service="Requesting a viewing">Book a Viewing</a>
+            <a href="#properties" class="btn btn-outline">Explore Properties</a>
+          </div>
+          <p class="trust-line">Independent advice. Local expertise. Personal service.</p>
+        </div>
+        <div class="hero-visual">
+          <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=1200&q=80" alt="London townhouses on a quiet residential street" onerror="this.remove()">
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="properties">
+      <div class="container">
+        <div class="section-head">
+          <h2>Selected London properties</h2>
+          <p>A small selection of homes we are currently representing, chosen for their location, character and value.</p>
+        </div>
+        <div class="grid grid-3">
+          <article class="card property">
+            <div class="property-img"><img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=800&q=80" alt="Kensington townhouse exterior" loading="lazy" onerror="this.remove()"></div>
+            <div class="card-body">
+              <p class="meta">Townhouse &middot; Kensington, W8</p>
+              <h3>Kensington townhouse</h3>
+              <p class="muted">5 bedrooms</p>
+              <p class="price">£4,250,000</p>
+              <button class="btn btn-outline btn-sm" data-service="Requesting a viewing" data-note="Kensington townhouse">View property</button>
+            </div>
+          </article>
+          <article class="card property">
+            <div class="property-img"><img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80" alt="Canary Wharf apartment building" loading="lazy" onerror="this.remove()"></div>
+            <div class="card-body">
+              <p class="meta">Apartment &middot; Canary Wharf, E14</p>
+              <h3>Canary Wharf apartment</h3>
+              <p class="muted">2 bedrooms</p>
+              <p class="price">£895,000</p>
+              <button class="btn btn-outline btn-sm" data-service="Requesting a viewing" data-note="Canary Wharf apartment">View property</button>
+            </div>
+          </article>
+          <article class="card property">
+            <div class="property-img"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" alt="Richmond family home" loading="lazy" onerror="this.remove()"></div>
+            <div class="card-body">
+              <p class="meta">Family home &middot; Richmond, TW9</p>
+              <h3>Richmond family home</h3>
+              <p class="muted">4 bedrooms</p>
+              <p class="price">£2,150,000</p>
+              <button class="btn btn-outline btn-sm" data-service="Requesting a viewing" data-note="Richmond family home">View property</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="about">
+      <div class="container">
+        <div class="section-head">
+          <h2>Property decisions deserve personal attention.</h2>
+        </div>
+        <div class="grid grid-3">
+          <div class="benefit"><h3>Local market expertise</h3><p>Years of experience across London's boroughs help us price, negotiate and advise with confidence.</p></div>
+          <div class="benefit"><h3>Tailored property search</h3><p>We listen first, then shortlist homes that fit your budget, timing and lifestyle.</p></div>
+          <div class="benefit"><h3>Clear, responsive communication</h3><p>One point of contact, honest updates and prompt replies from first call to completion.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-head">
+          <h2>How we can help</h2>
+          <p>Whether you are buying, selling, letting or investing, we tailor our support to you.</p>
+        </div>
+        <div class="grid grid-4">
+          <a href="#contact" class="card service" data-service="Buying a property">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg>
+            <h3>Buying</h3><p>Find and secure the right home with expert guidance.</p>
+          </a>
+          <a href="#contact" class="card service" data-service="Selling a property">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h8l8 8-8 8-8-8z"/><circle cx="8.5" cy="8.5" r="1.2"/></svg>
+            <h3>Selling</h3><p>Accurate valuations and careful marketing for the best result.</p>
+          </a>
+          <a href="#contact" class="card service" data-service="Letting a property">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="12" r="4"/><path d="M12 12h9"/><path d="M18 12v4"/><path d="M15 12v3"/></svg>
+            <h3>Lettings</h3><p>Reliable tenants and full management for landlords.</p>
+          </a>
+          <a href="#contact" class="card service" data-service="Property investment">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20h18"/><path d="M5 16l5-5 4 4 6-7"/><path d="M15 8h5v5"/></svg>
+            <h3>Investment advisory</h3><p>Data-led advice on yields, locations and long-term growth.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="contact">
+      <div class="container form-grid">
+        <div class="form-intro">
+          <h2>Tell us what you’re looking for.</h2>
+          <p class="lead">Share a few details and a member of our team will contact you within one business day.</p>
+          <p class="muted privacy">Your details are handled securely and never shared without your permission.</p>
+        </div>
+        <div class="form-card">
+          <form id="enquiryForm" novalidate>
+            <div class="field">
+              <label for="full_name">Full name</label>
+              <input type="text" id="full_name" name="full_name" autocomplete="name" required aria-describedby="full_name_error">
+              <p class="field-error" id="full_name_error" role="alert"></p>
+            </div>
+            <div class="field">
+              <label for="email">Email address</label>
+              <input type="email" id="email" name="email" autocomplete="email" required aria-describedby="email_error">
+              <p class="field-error" id="email_error" role="alert"></p>
+            </div>
+            <div class="field">
+              <label for="phone">Phone number <span class="optional">(optional)</span></label>
+              <input type="tel" id="phone" name="phone" autocomplete="tel">
+            </div>
+            <div class="field">
+              <label for="service">How can we help?</label>
+              <select id="service" name="service" required aria-describedby="service_error">
+                <option value="">Select a service</option>
+                <option>Buying a property</option>
+                <option>Selling a property</option>
+                <option>Letting a property</option>
+                <option>Property investment</option>
+                <option>Requesting a viewing</option>
+              </select>
+              <p class="field-error" id="service_error" role="alert"></p>
+            </div>
+            <div class="field">
+              <label for="message">Tell us more</label>
+              <textarea id="message" name="message" rows="5" required placeholder="For example: preferred location, budget, property type, timing, or any specific requirements." aria-describedby="message_error"></textarea>
+              <p class="field-error" id="message_error" role="alert"></p>
+            </div>
+            <div class="field field-check">
+              <label class="check">
+                <input type="checkbox" id="consent" name="consent" required aria-describedby="consent_error">
+                <span>I agree to be contacted by Northbridge Estates about my enquiry.</span>
+              </label>
+              <p class="field-error" id="consent_error" role="alert"></p>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block" id="submitBtn">
+              <span class="spinner" aria-hidden="true"></span><span class="btn-label">Send enquiry</span>
+            </button>
+            <div id="formStatus" class="form-status" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <p class="logo logo-light">Northbridge Estates</p>
+        <p>Exceptional properties. Personal guidance.</p>
+        <p>London, United Kingdom</p>
+        <p><a href="mailto:hello@northbridge-estates.example">hello@northbridge-estates.example</a></p>
+      </div>
+      <nav aria-label="Footer" class="footer-nav">
+        <a href="#properties">Properties</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+    <div class="container copyright">© 2026 Northbridge Estates. All rights reserved.</div>
+  </footer>
+
+  <!-- config.js is local only (gitignored). It must load before script.js -->
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
