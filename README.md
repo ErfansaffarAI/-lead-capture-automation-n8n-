@@ -68,3 +68,33 @@ full_name | email | phone | service | message | created_at | lead_status | sourc
 5. Replace `YOUR_TELEGRAM_CHAT_ID` with your own Telegram chat ID.
 6. Select your own Google Sheet in the Google Sheets node.
 7. Test the workflow with a POST request to the webhook.
+
+
+## Version 2 — Customer-Facing Real Estate Website
+
+This project now includes a responsive real-estate landing page for the fictional agency **Northbridge Estates**.
+
+The website allows a visitor to submit a property enquiry through a real form. The form sends a JSON `POST` request to the n8n Production Webhook.
+
+```text
+Customer website form
+        ↓
+n8n Production Webhook
+        ↓
+Edit Fields
+        ↓
+IF validation
+        ↓
+Google Sheets
+        ↓
+Telegram notification
+```
+
+### Website files
+
+The customer-facing website is located in the `website/` directory:
+
+- `index.html` — page structure and lead form
+- `styles.css` — responsive UI and visual design
+- `script.js` — form validation and webhook request
+- `config.example.js` — safe configuration template
